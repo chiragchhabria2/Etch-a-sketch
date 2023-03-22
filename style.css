@@ -10,6 +10,16 @@
     --NUMBER-OF-SQUARES : 0;
     --SQUARE-DIMENSIONS : calc( var(--CONTAINER-DIMENSIONS) / var(--NUMBER-OF-SQUARES));
 }
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: roe;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+
 #container {
     border: 2px double black;
     max-width: var(--CONTAINER-DIMENSIONS);
@@ -35,17 +45,10 @@ button {
     font-size: 1.5rem;
 
 }
+
 #colorInput {
     display: block;
    
-}
-header {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: roe;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 20px;
 }
 
 #randomBtn {

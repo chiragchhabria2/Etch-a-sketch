@@ -1,16 +1,22 @@
+
+// Declaring variables
 let square;
 let sqColor = "black";
 const container = document.querySelector("#container");
 let numberOfSquaresOnOneSide = 16;
-document.querySelector(":root").style.setProperty("--NUMBER-OF-SQUARES", numberOfSquaresOnOneSide)
-createGrid(numberOfSquaresOnOneSide);
-
-
-let btn = document.getElementById("changeBtn");
+let sizeBtn = document.getElementById("changeBtn");
 let colorInput = document.getElementById("colorInput");
 let randomBtn = document.getElementById("randomBtn");
 let isRandom = false;
-btn.addEventListener("click", () => {
+
+// Setting the number of squares per side
+    document.querySelector(":root").style.setProperty("--NUMBER-OF-SQUARES", numberOfSquaresOnOneSide);
+
+    createGrid(numberOfSquaresOnOneSide);
+
+// Event listeners
+   // Getting the number of squares per side from the user
+sizeBtn.addEventListener("click", () => {
     numberOfSquaresOnOneSide = prompt("How many squares per side?");
     numberOfSquaresOnOneSide = parseInt(numberOfSquaresOnOneSide);
     if (numberOfSquaresOnOneSide > 100) {
@@ -18,7 +24,7 @@ btn.addEventListener("click", () => {
     }
     document.querySelector(":root").style.setProperty("--NUMBER-OF-SQUARES", numberOfSquaresOnOneSide)
     deleteGrid();
-    createGrid(numberOfSquaresOnOneSide , isRandom);
+    createGrid(numberOfSquaresOnOneSide );
 });
 
  
@@ -32,12 +38,15 @@ randomBtn.addEventListener("click", () => {
 });
 
 
-
+// Functions
+    // Creating the grid with individual squares
 function createGrid(length ) {
 for (let i = 0; i < length ** 2; i++) {
+    // creating and styling the squares
     square = document.createElement("div");
     square.classList.add("square");
     
+    // Adding event listeners to the squares
     square.addEventListener("mouseover", function() {
        if (!isRandom) 
        
@@ -48,8 +57,9 @@ for (let i = 0; i < length ** 2; i++) {
                 this.style.backgroundColor = generateRandomColor();
          }   
        },
-            //   {once : isRandom }
+            
              );
+    // Adding the squares to the container
     container.appendChild(square)
 
 
@@ -57,13 +67,13 @@ for (let i = 0; i < length ** 2; i++) {
 
 }
 
-
+// Deleting the grid when the user changes the number of squares per side
 function deleteGrid() {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
 }
-
+// Generating random colors
 function generateRandomColor() {
     var letters = "0123456789ABCDEF";
   var color = "#";
