@@ -48,7 +48,7 @@ for (let i = 0; i < length ** 2; i++) {
     
     // Adding event listeners to the squares
     square.addEventListener("mouseover", draw);
-    square.addEventListener("touchmove", draw);
+    square.addEventListener("touchstart", draw);
     // Adding the squares to the container
     container.appendChild(square)
 
