@@ -8,6 +8,8 @@ createGrid(numberOfSquaresOnOneSide);
 
 let btn = document.getElementById("changeBtn");
 let colorInput = document.getElementById("colorInput");
+let randomBtn = document.getElementById("randomBtn");
+let isRandom = false;
 btn.addEventListener("click", () => {
     numberOfSquaresOnOneSide = prompt("How many squares per side?");
     numberOfSquaresOnOneSide = parseInt(numberOfSquaresOnOneSide);
@@ -16,7 +18,7 @@ btn.addEventListener("click", () => {
     }
     document.querySelector(":root").style.setProperty("--NUMBER-OF-SQUARES", numberOfSquaresOnOneSide)
     deleteGrid();
-    createGrid(numberOfSquaresOnOneSide);
+    createGrid(numberOfSquaresOnOneSide , isRandom);
 });
 
  
@@ -24,12 +26,30 @@ colorInput.addEventListener("input", () => {
     sqColor = colorInput.value;
 });
 
-function createGrid(length) {
+randomBtn.addEventListener("click", () => {
+    isRandom = !isRandom; 
+   
+});
+
+
+
+function createGrid(length ) {
 for (let i = 0; i < length ** 2; i++) {
     square = document.createElement("div");
     square.classList.add("square");
+    
     square.addEventListener("mouseover", function() {
-             this.style.backgroundColor = sqColor;});
+       if (!isRandom) 
+       
+            {
+             this.style.backgroundColor = sqColor;
+            } 
+         else {
+                this.style.backgroundColor = generateRandomColor();
+         }   
+       },
+            //   {once : isRandom }
+             );
     container.appendChild(square)
 
 
@@ -42,4 +62,13 @@ function deleteGrid() {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
+}
+
+function generateRandomColor() {
+    var letters = "0123456789ABCDEF";
+  var color = "#";
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
