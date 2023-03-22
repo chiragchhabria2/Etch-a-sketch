@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+    
     padding: 0;
     margin: 0;
 }
@@ -8,7 +8,7 @@
     --CONTAINER-DIMENSIONS : min(95vh , 95vw);
     
     --NUMBER-OF-SQUARES : 0;
-    --SQUARE-DIMENSIONS : calc( var(--CONTAINER-DIMENSIONS) / var(--NUMBER-OF-SQUARES));
+    --SQUARE-DIMENSIONS : calc(( var(--CONTAINER-DIMENSIONS))/ var(--NUMBER-OF-SQUARES));
 }
 
 header {
@@ -21,7 +21,8 @@ header {
 }
 
 #container {
-    border: 2px double black;
+    border: 2px solid black;
+  
     max-width: var(--CONTAINER-DIMENSIONS);
     max-height: var(--CONTAINER-DIMENSIONS);
     display: grid;
