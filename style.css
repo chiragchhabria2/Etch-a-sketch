@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --SQUARE-COLOR : #000;
+    --CONTAINER-DIMENSIONS : 95vh;
+    
+    --NUMBER-OF-SQUARES : 0;
+    --SQUARE-DIMENSIONS : calc( var(--CONTAINER-DIMENSIONS) / var(--NUMBER-OF-SQUARES));
+}
+#container {
+    max-width: var(--CONTAINER-DIMENSIONS);
+    max-height: var(--CONTAINER-DIMENSIONS);
+    display: grid;
+    grid-template-columns: repeat(var(--NUMBER-OF-SQUARES), 1fr);
+    grid-template-rows: repeat(var(--NUMBER-OF-SQUARES), 1fr);
+    margin: auto;
+    margin-top: 5vh;
+}
+
+.square {
+    width: var(--SQUARE-DIMENSIONS);
+    height: var(--SQUARE-DIMENSIONS);
+    background-color: var(--SQUARE-COLOR);
+    
+}
+
+#changeBtn {
+    text-transform: capitalize;
+    font-size: 1.5rem;
+
+}
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
