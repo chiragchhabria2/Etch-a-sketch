@@ -47,18 +47,8 @@ for (let i = 0; i < length ** 2; i++) {
     square.classList.add("square");
     
     // Adding event listeners to the squares
-    square.addEventListener("mouseover", function() {
-       if (!isRandom) 
-       
-            {
-             this.style.backgroundColor = sqColor;
-            } 
-         else {
-                this.style.backgroundColor = generateRandomColor();
-         }   
-       },
-            
-             );
+    square.addEventListener("mouseover", draw);
+    square.addEventListener("touchmove", draw);
     // Adding the squares to the container
     container.appendChild(square)
 
@@ -66,6 +56,16 @@ for (let i = 0; i < length ** 2; i++) {
 }
 
 }
+function draw() {
+    if (!isRandom) 
+    
+         {
+          this.style.backgroundColor = sqColor;
+         } 
+      else {
+             this.style.backgroundColor = generateRandomColor();
+      }   
+    }
 
 // Deleting the grid when the user changes the number of squares per side
 function deleteGrid() {
