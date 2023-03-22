@@ -4,20 +4,21 @@
     margin: 0;
 }
 :root {
-    --SQUARE-COLOR : #000;
-    --CONTAINER-DIMENSIONS : 95vh;
+    --SQUARE-COLOR : white;
+    --CONTAINER-DIMENSIONS : min(95vh , 95vw);
     
     --NUMBER-OF-SQUARES : 0;
     --SQUARE-DIMENSIONS : calc( var(--CONTAINER-DIMENSIONS) / var(--NUMBER-OF-SQUARES));
 }
 #container {
+    border: 2px double black;
     max-width: var(--CONTAINER-DIMENSIONS);
     max-height: var(--CONTAINER-DIMENSIONS);
     display: grid;
     grid-template-columns: repeat(var(--NUMBER-OF-SQUARES), 1fr);
     grid-template-rows: repeat(var(--NUMBER-OF-SQUARES), 1fr);
     margin: auto;
-    margin-top: 5vh;
+    margin-top: min(5vh , 5vw);
 }
 
 .square {
@@ -28,12 +29,20 @@
 }
 
 #changeBtn {
+    display: block;
+    
     text-transform: capitalize;
     font-size: 1.5rem;
 
 }
+#colorInput {
+    display: block;
+   
+}
 header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
